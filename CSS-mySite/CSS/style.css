@@ -6,24 +6,7 @@ h1{
 }
 .firstContainer{
     background-color: #E4f9f5;
-    width: 200px;
-    height: 200px;
-    border: solid;
-
-
 }
-.secondContainer{
-    background-color: #d3d14d;
-    width: 200px;
-    height: 200px;
-    border: solid 20px;
-    margin-left: 205px;
-    
-}
-.thirdContainer{
-    background-color: #a01995;
-    width: 200px;
-    height: 200px;
-    border: 10px;
-    margin-left: 445px;
+.pro{
+    text-decoration:underline ;
 }
