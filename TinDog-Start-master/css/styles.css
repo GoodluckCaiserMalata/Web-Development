@@ -54,9 +54,13 @@ p{
     width:60%;
     margin-left: 55px;
     transform: rotate(25deg);
+    
 }
 #features{
     padding: 7% 15%;
+    background-color: white;
+
+   
 } 
 .feature-box{
     text-align: center;
@@ -101,4 +105,30 @@ p{
 .pricing-column{
     padding: 3% 2%;
 
+}
+@media (max-width: 1028px){
+    .title-image{
+        position:static;
+        transform: rotate(0);
+    }
+}
+#cta{
+    background-color: #ff4c68;
+    color: white;
+    text-align: center;
+    padding: 7% 15%;
+}
+#footer{
+    text-align: center;
+    padding: 7% 15%;
+}
+.footer{
+    padding: 0% 0% 3%;
+}
+.cta{
+    font-family:  "Montserrat-Light", sans-serif;
+    font-size: 3.5rem;
+}
+#social{
+    margin: 20px 10px;
 }
