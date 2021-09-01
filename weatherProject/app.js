@@ -18,7 +18,6 @@ app.get("/", function(req, res){
             res.write("The tempurature in Dar es salaam is " + temp + " degree celcious");
             res.write("<img src="+ imageURL +">");
             res.send();
-            
         });
 
     });
