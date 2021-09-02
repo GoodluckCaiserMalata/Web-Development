@@ -51,7 +51,7 @@ const options = {
     request.write(jsonData);
     request.end();
 });
-app.listen(7000, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("server app and running on port 3000");
 });
 
