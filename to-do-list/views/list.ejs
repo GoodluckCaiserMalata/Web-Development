@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1>
+            <%= kindOfDay%>
+        </h1>
+
+    </div>
+    <div class="box" id=""></div>
+
+
+
+
+    <!-- you can add the list items to the array then remain with the ejs tags only. -->
+    <!-- <div> Buy Food</div>
+        <div> Cook Food</div>
+        <div> Eat Food</div> -->
+    <div class="box"> <% for (var i=0; i<newItems.length; i++){%>
+        <div class="item"><input type="checkbox">
+            <p><%= newItems[i] %></p>
+        </div> <%
+            } %>
+        <form class="item" action="/" method="POST">
+            <input type="text" name="newItem" placeholder="New Item">
+            <button type="submit" name="button" autocomplete="off">
+                +
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
