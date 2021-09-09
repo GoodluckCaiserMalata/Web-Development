@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-
-<body>
+<%- include("header") -%>
     <div class="box" id="heading">
         <h1>
-            <%= kindOfDay%>
+            <%= listTitle%>
         </h1>
 
     </div>
     <div class="box" id=""></div>
 
-
-
-
-    <!-- you can add the list items to the array then remain with the ejs tags only. -->
-    <!-- <div> Buy Food</div>
-        <div> Cook Food</div>
-        <div> Eat Food</div> -->
-    <div class="box"> <% for (var i=0; i<newItems.length; i++){%>
+    <div class="box"> 
+        <% for (var i=0; i<newItems.length; i++){%>
         <div class="item"><input type="checkbox">
             <p><%= newItems[i] %></p>
-        </div> <%
-            } %>
+        </div> 
+        <% } %>
         <form class="item" action="/" method="POST">
-            <input type="text" name="newItem" placeholder="New Item">
-            <button type="submit" name="button" autocomplete="off">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value=<%= listTitle%>>
                 +
             </button>
-
         </form>
 
     </div>
+    <%- include("footer") -%>
 
-
-
-
-</body>
-
-</html>
