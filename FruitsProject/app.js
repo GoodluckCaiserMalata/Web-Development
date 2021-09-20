@@ -2,15 +2,22 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/FruitsDB');
 
 const fruitsSchema = new mongoose.Schema({
-    name: String,
-    rating:Number, 
+    name: {
+        type:String, 
+        required:[true, "Fruit name is required"]
+    },
+    rating:{
+        type:Number, 
+        min:1,
+        max:9
+    }, 
     review: String, 
 });
 
 const Fruit = mongoose.model("Fruit", fruitsSchema);
 
 const fruit = new Fruit({
-    name: "Apple", 
+    name: "",
     rating: 7,
     review:"Solid for a fruit"
 });
@@ -28,15 +35,15 @@ const avacado = new Fruit({
 
 });
 
-// Fruit.insertMany([banana, avacado], function(err){
-//     if (err){
-//         console.log(err);
-//     } else{
-//         console.log("sucessfully");
-//     }
+Fruit.insertMany([banana, avacado], function(err){
+    if (err){
+        console.log(err);
+    } else{
+        console.log("sucessfully");
+    }
    
-// });
-// fruit.save().then(() => console.log('imelala iyoo'));
+});
+fruit.save().then(() => console.log('imelala iyoo'));
 
 const personSchema = new mongoose.Schema({
     name: String, 
@@ -51,16 +58,15 @@ const person = new Person({
     age: 37
 });
 
-person.save().then(() =>console.log("Imelala iyoooo kama kawa"))
+person.save().then(() =>console.log("Dont be intimidated"))
 
 
 Fruit.find(function (err, fruits) {
     if (err){
         console.log(err);
     }else{
-        console.log(fruits);
-        fruits.forEach(function(fruit){
-            console.log(fruits);
-        })
+        fruits.forEach(function (fruit) {
+            console.log(fruit.name);            
+        });
     }
 });
