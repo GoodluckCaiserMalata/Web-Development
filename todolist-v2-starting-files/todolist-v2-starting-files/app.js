@@ -73,21 +73,36 @@ app.post("/", function(req, res){
     item.save();
     res.redirect("/");
   }else{
-    List.findOne({name:listName})
+    List.findOne({name:listName}, function(err, foundList){ 
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName);
+
+    })
   }
   
 
 });
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
-  Item.findByIdAndRemove(checkedItemId, function(err){
-    if (!err){
-      console.log("Sucessfully removed");
-      res.redirect("/");
-    }else{
-      console.log(err);
-    }
-  })
+  const listName = req.body.listName;
+
+  if(listName ==="Today"){
+    Item.findByIdAndRemove(checkedItemId, function(err){
+      if (!err){
+        console.log("sucessfully delete the checked");
+        res.redirect("/");
+      }
+     
+    });
+  }else{
+    List.findOneAndUpdate({name:listName}, {$pull:{items:{id:checkedItemId}}}, function(err, foundList){
+      if(!err){
+        res.redirect("/"+listName);
+      }
+    });
+  }
+  
 });
 
 app.get("/:customListName", function(req, res){
@@ -116,6 +131,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(5000, function() {
+app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
